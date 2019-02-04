@@ -1,0 +1,32 @@
+{
+  "name": "make-thenable",
+  "description": "Make any object thenable without a fuss ",
+  "version": "0.0.1",
+  "author": "rasenplanscher",
+  "license": "MIT",
+  "main": "index.js",
+  "files": [
+    "index.mjs"
+  ],
+  "scripts": {
+    "build": "browserize",
+    "checkGit": "git diff --quiet",
+    "prepublishOnly": "run-s checkGit build"
+  },
+  "dependencies": {
+    "browserize": "^1.0.0",
+    "npm-run-all": "^4.1.5"
+  },
+  "homepage": "https://github.com/rasenplanscher/make-thenable#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rasenplanscher/make-thenable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rasenplanscher/make-thenable/issues"
+  },
+  "keywords": [
+    "Promise",
+    "thenable"
+  ]
+}
