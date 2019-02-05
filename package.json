@@ -1,20 +1,23 @@
 {
   "name": "make-thenable",
   "description": "Make any object thenable without a fuss ",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "rasenplanscher",
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.mjs"
+    "index.mjs",
+    "resolvable.js",
+    "resolvable.mjs"
   ],
   "scripts": {
     "build": "browserize",
+    "buildResolvable": "browserize resolvable",
     "checkGit": "git diff --quiet",
-    "prepublishOnly": "run-s checkGit build"
+    "prepublishOnly": "run-s checkGit build buildResolvable"
   },
   "dependencies": {
-    "browserize": "^1.0.0",
+    "browserize": "^1.0.1",
     "npm-run-all": "^4.1.5"
   },
   "homepage": "https://github.com/rasenplanscher/make-thenable#readme",

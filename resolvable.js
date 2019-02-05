@@ -1,5 +1,5 @@
 /**
- * Makes the given object "thenable", behaving like a promise.
+ * Makes the given object "thenable", behaving like a promise, and reoslvable/rejectable.
  *
  * Creates a promise, adds its `then` and `catch` methods to the given object,
  * and finally returns its `resolve` and `reject` functions.
@@ -8,17 +8,16 @@
  *
  * @param {Object} object - object to make thenable
  *
- * @returns {[function, function]}
+ * @returns {Object} the modified original object
  */
 module.exports = function promisify(object) {
-	let resolve, reject
-	const promise = new Promise((innerResolve, innerReject) => {
-		resolve = innerResolve
-		reject = innerReject
+	const promise = new Promise((resolve, reject) => {
+		object.resolve = resolve
+		object.reject = reject
 	})
 
 	object.catch = promise.catch.bind(promise)
 	object.then = promise.then.bind(promise)
 
-	return [resolve, reject]
+	return object
 }
